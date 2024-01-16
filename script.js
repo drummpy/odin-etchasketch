@@ -2,7 +2,6 @@ function createGrid(size) {
   for (let i = 0; i < size; i++) {
     const gridRow = document.createElement("div");
     createColumn(size, gridRow);
-    gridRow.setAttribute("id", "row");
     gridRow.classList.add("grid-row");
     boxContainer.appendChild(gridRow);
   }
@@ -12,6 +11,9 @@ function createColumn(size, currentRow) {
   for (let i = 0; i < size; i++) {
     const gridColumn = document.createElement("div");
     gridColumn.classList.add("grid-box");
+    gridColumn.addEventListener("mouseover", () => {
+      gridColumn.classList.replace("grid-box", "grid-box-change");
+    });
     currentRow.appendChild(gridColumn);
   }
 }
@@ -26,10 +28,11 @@ function resetGrid(gridSize) {
 function setSize() {
   let newSize = +prompt("Enter your new grid size", "16");
   console.log(newSize);
-  if (newSize <= 100) {
+  if (newSize > 1 && newSize <= 100) {
     return newSize;
   } else {
     alert("Please pick a number less than 100");
+    return gridSize;
   }
 }
 

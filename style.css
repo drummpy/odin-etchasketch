@@ -63,3 +63,9 @@ p {
   width: 100%;
   flex: 1;
 }
+
+.grid-box-change {
+  border: 1px black solid;
+  flex: 1;
+  background: black;
+}
