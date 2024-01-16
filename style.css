@@ -26,7 +26,7 @@ p {
   background: #e5e7eb;
   font-family: Cabin;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
   width: 200px;
   align-self: flex-end;
 }
@@ -46,8 +46,20 @@ p {
 
 .box-container {
   display: flex;
+  flex-direction: column;
   background: white;
   border: 1px black solid;
   width: 400px;
   height: 400px;
+}
+
+.grid-box {
+  border: 1px black solid;
+  flex: 1;
+}
+
+.grid-row {
+  display: flex;
+  width: 100%;
+  flex: 1;
 }
