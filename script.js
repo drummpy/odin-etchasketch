@@ -16,17 +16,20 @@ function createColumn(size, currentRow) {
   }
 }
 
-function removeGrid() {
+function resetGrid(gridSize) {
   while (boxContainer.firstChild) {
     boxContainer.removeChild(boxContainer.firstChild);
   }
+  createGrid(gridSize);
 }
 
 function setSize() {
-  let newSize = prompt("Enter your new grid size", "16");
-
-  if (newSize != null) {
-    return +newSize;
+  let newSize = +prompt("Enter your new grid size", "16");
+  console.log(newSize);
+  if (newSize <= 100) {
+    return newSize;
+  } else {
+    alert("Please pick a number less than 100");
   }
 }
 
@@ -39,12 +42,10 @@ createGrid(gridSize);
 
 setSizeButton.addEventListener("click", () => {
   gridSize = setSize();
-  removeGrid();
-  createGrid(gridSize);
+  resetGrid(gridSize);
   console.log(gridSize);
 });
 resetButton.addEventListener("click", () => {
-  removeGrid();
-  createGrid(gridSize);
+  resetGrid(gridSize);
   console.log("reset");
 });
